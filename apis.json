@@ -1,0 +1,100 @@
+{
+    "name": "Meetup",
+    "description": "Find Meetups so you can do more of what matters to you. Or create your own group and meet people near you who share your interests.",
+    "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/6564-meetup.jpg",
+    "tags": [
+        "api provider",
+        "api service provider",
+        "general data",
+        "have api",
+        "historical data api",
+        "marketplaces",
+        "meetups",
+        "pedestal",
+        "relative data",
+        "service api",
+        "streams"
+    ],
+    "created": "2019-12-19",
+    "modified": "2019-12-19",
+    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/meetup\/master\/apis.json",
+    "specificationVersion": "0.14",
+    "apis": [
+        {
+            "name": "Meetup",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/6564-meetup.jpg",
+            "humanURL": "http:\/\/meetup.com",
+            "baseURL": "",
+            "tags": [],
+            "properties": []
+        }
+    ],
+    "include": [],
+    "x-common": [
+        {
+            "type": "Base",
+            "url": "http:\/\/api.meetup.com"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "https:\/\/crunchbase.com\/organization\/meetup"
+        },
+        {
+            "type": "Developers",
+            "url": "http:\/\/www.meetup.com\/meetup_api\/"
+        },
+        {
+            "type": "Email",
+            "url": "privacy@meetup.com"
+        },
+        {
+            "type": "Email",
+            "url": "abuse@meetup.com"
+        },
+        {
+            "type": "Email",
+            "url": "api_license@meetup.com"
+        },
+        {
+            "type": "Email",
+            "url": "arbitration-opt-out@meetup.com"
+        },
+        {
+            "type": "Email",
+            "url": "legal@meetup.com"
+        },
+        {
+            "type": "Github",
+            "url": "https:\/\/github.com\/meetup"
+        },
+        {
+            "type": "Pricing",
+            "url": "http:\/\/www.meetup.com\/pricing\/"
+        },
+        {
+            "type": "Privacy",
+            "url": "http:\/\/www.meetup.com\/privacy\/"
+        },
+        {
+            "type": "Support",
+            "url": "http:\/\/www.meetup.com\/help\/"
+        },
+        {
+            "type": "Terms Of Service",
+            "url": "http:\/\/www.meetup.com\/terms\/"
+        },
+        {
+            "type": "Twitter",
+            "url": "https:\/\/twitter.com\/MeetupAPI"
+        },
+        {
+            "type": "Twitter",
+            "url": "https:\/\/twitter.com\/Meetup"
+        },
+        {
+            "type": "Website",
+            "url": "http:\/\/meetup.com"
+        }
+    ]
+}
