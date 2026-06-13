@@ -1,0 +1,71 @@
+{
+  "provider": "meetup",
+  "blogUrl": "https://www.meetup.com/blog/",
+  "fetched": "2026-06-13",
+  "posts": [
+    {
+      "title": "The 2026 Meetup roadmap—Building on our 2025 momentum",
+      "url": "https://www.meetup.com/blog/2026-meetup-roadmap/",
+      "date": "2025-12-18",
+      "author": "Chiara Vivaldi",
+      "category": "Product Updates",
+      "summary": "Meetup announced its 2026 product roadmap featuring three major initiatives: launching a modernized mobile experience (already live), streamlining community-building through tools like a unified organizer app and QR-code attendance tracking, and enhancing member confidence with richer profiles, Super Organizer badges, and experimental connection features."
+    },
+    {
+      "title": "Discover Meetup's fresh look: A new design for a new era of making connections",
+      "url": "https://www.meetup.com/blog/new-design-2025/",
+      "date": "2025-12-18",
+      "author": "Chiara Vivaldi",
+      "category": "Product Updates",
+      "summary": "Meetup launched a major redesign featuring a vibrant visual identity, improved navigation, and better event discovery tools. The update maintains core functionality while modernizing the platform to appeal to younger users, particularly Gen Z and young Millennials who comprise 40% of the platform's active users. The redesign is live on web with mobile rollout planned."
+    },
+    {
+      "title": "16 recent Meetup improvements you might have missed",
+      "url": "https://www.meetup.com/blog/16-recent-meetup-improvements-you-might-have-missed/",
+      "date": "2025-12-18",
+      "author": "Meetup Team",
+      "category": "Product Updates",
+      "summary": "A roundup of sixteen platform improvements aimed at making Meetup more intuitive, reliable, and efficient for organizers and members alike."
+    },
+    {
+      "title": "The 2025 Meetup progress report",
+      "url": "https://www.meetup.com/blog/2025-meetup-progress-report/",
+      "date": "2025-12-18",
+      "author": "Chiara Vivaldi",
+      "category": "Product Updates",
+      "summary": "Product lead reflection on the past year's accomplishments and priorities for upcoming months, highlighting platform growth and community milestones."
+    },
+    {
+      "title": "Personalized event recommendations that deliver—4 tips to boost your RSVPs",
+      "url": "https://www.meetup.com/blog/4-tips-more-rsvps-personal-recommendations/",
+      "date": "2025-12-18",
+      "author": "Meetup Team",
+      "category": "Product Updates",
+      "summary": "Details new recommendation features and organizer strategies to increase event visibility and drive higher RSVP rates through personalized discovery."
+    },
+    {
+      "title": "Snappier, more reliable messaging is here",
+      "url": "https://www.meetup.com/blog/messaging-improvements/",
+      "date": "2025-12-18",
+      "author": "Meetup Team",
+      "category": "Product Updates",
+      "summary": "Messaging updates include greater clarity about message delivery, more consistent notifications, and an updated user interface for better communication between members and organizers."
+    },
+    {
+      "title": "Introducing Meetup Starter",
+      "url": "https://www.meetup.com/blog/introducing-meetup-starter/",
+      "date": "2024-10-11",
+      "author": "Meetup Team",
+      "category": "Product Updates",
+      "summary": "Meetup introduced a new free plan called Meetup Starter to make community building more accessible to new organizers, allowing management of one group with up to two monthly in-person events and ten attendees per event."
+    },
+    {
+      "title": "Exciting updates to Member Dues",
+      "url": "https://www.meetup.com/blog/how-to-use-meetups-new-member-dues-system/",
+      "date": "2024-10-11",
+      "author": "Meetup Team",
+      "category": "Product Updates",
+      "summary": "Stripe payment processing is now available to all organizers for collecting membership fees, making it easier to manage recurring dues for community groups."
+    }
+  ]
+}

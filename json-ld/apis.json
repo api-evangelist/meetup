@@ -1,0 +1,71 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebAPI",
+  "name": "Meetup GraphQL API",
+  "description": "A single-endpoint GraphQL API for accessing and managing Meetup community data including groups, events, members, tickets (RSVPs), venues, and photos. Supports querying, mutations for event creation and publishing, image uploads, and full schema introspection. Rate-limited to 500 query points per 60-second window.",
+  "url": "https://www.meetup.com/graphql/",
+  "termsOfService": "https://www.meetup.com/terms/",
+  "provider": {
+    "@type": "Organization",
+    "name": "Meetup",
+    "url": "https://www.meetup.com",
+    "logo": "https://www.meetup.com/favicon.ico",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "url": "https://help.meetup.com/hc/requests/new?platform=web",
+      "contactType": "customer support"
+    }
+  },
+  "documentation": "https://www.meetup.com/graphql/guide/",
+  "endpointUrl": "https://api.meetup.com/gql-ext",
+  "category": [
+    "Events",
+    "Community",
+    "Groups",
+    "Meetups",
+    "Social",
+    "GraphQL"
+  ],
+  "inLanguage": "en",
+  "license": "https://www.meetup.com/terms/",
+  "offers": {
+    "@type": "Offer",
+    "description": "Available as part of Meetup Pro subscription",
+    "url": "https://www.meetup.com/lp/meetup-pro"
+  },
+  "featureList": [
+    "GraphQL query interface",
+    "Event creation and publishing",
+    "RSVP / ticket management",
+    "Group and member queries",
+    "Photo upload and management",
+    "Venue information",
+    "Cursor-based pagination",
+    "OAuth 2.0 authentication",
+    "Schema introspection",
+    "Pro network-wide search"
+  ],
+  "softwareRequirements": "OAuth 2.0 Bearer token required; Meetup Pro subscription required for full access",
+  "apiProtocol": "GraphQL",
+  "potentialAction": [
+    {
+      "@type": "SearchAction",
+      "name": "Search Events",
+      "description": "Search for events across the Meetup platform using eventsSearch query"
+    },
+    {
+      "@type": "SearchAction",
+      "name": "Search Groups",
+      "description": "Search for groups using groupsSearch query"
+    },
+    {
+      "@type": "CreateAction",
+      "name": "Create Event",
+      "description": "Create and publish a new Meetup event via GraphQL mutation"
+    }
+  ],
+  "sameAs": [
+    "https://www.meetup.com/graphql/",
+    "https://www.meetup.com/api/playground/"
+  ]
+}
