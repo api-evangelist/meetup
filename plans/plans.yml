@@ -1,0 +1,43 @@
+plans:
+  - name: Standard
+    description: >
+      Basic Meetup organizer plan for individuals managing a single group.
+      Does not include API access. Provides core event management, member
+      communication, and group tools.
+    url: https://www.meetup.com/pricing/
+    price: 29.99
+    currency: USD
+    period: monthly
+    features:
+      - Single group management
+      - Event creation and promotion
+      - Member communication
+      - Basic analytics
+    apiAccess: false
+
+  - name: Pro
+    description: >
+      Meetup Pro is the subscription tier that unlocks API access. Designed for
+      organizations managing multiple groups or community networks. Includes
+      GraphQL API access, advanced analytics, attendee email access, custom
+      attendance forms, and network-wide event and group management.
+    url: https://www.meetup.com/meetup-pro/
+    price: 55.00
+    currency: USD
+    period: monthly
+    unit: per group
+    features:
+      - GraphQL API access
+      - Multiple group management
+      - Attendee email access
+      - Advanced analytics
+      - Custom attendance forms
+      - Network-wide group and event search
+      - Event publishing via API
+      - RSVP/Ticket management via API
+      - Photo upload via API
+      - Full schema introspection
+    apiAccess: true
+    rateLimits:
+      queryPoints: 500
+      windowSeconds: 60

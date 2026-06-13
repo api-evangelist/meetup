@@ -1,0 +1,48 @@
+finops:
+  summary: >
+    Meetup API access is gated behind the Meetup Pro subscription. There is no
+    standalone API tier or pay-per-use pricing for the API itself. All API costs
+    are bundled into the Pro plan subscription fee, which is charged per group
+    per month. Organizations managing multiple groups pay per-group pricing.
+
+  billingModel: subscription
+  currency: USD
+
+  tiers:
+    - name: Standard (No API)
+      monthlyPrice: 29.99
+      annualDiscount: true
+      apiIncluded: false
+      description: >
+        Core organizer plan. No API access. Suitable for individual group
+        organizers who do not need programmatic access to Meetup data.
+
+    - name: Pro (API Included)
+      monthlyPrice: 55.00
+      unit: per group per month
+      annualDiscount: true
+      apiIncluded: true
+      description: >
+        Professional community management plan with full GraphQL API access.
+        Pricing is per group managed under a Pro network. Organizations with
+        many groups should factor per-group costs into budget planning.
+
+  additionalCosts:
+    - name: Promoted Events
+      description: Optional paid event promotion to increase visibility
+      range: "$5–$15 per day"
+    - name: Payment Processing
+      description: Fees apply when collecting event ticket payments through Meetup
+      notes: Third-party payment processor fees may apply
+
+  costOptimization:
+    - Combine multiple GraphQL queries into a single request to maximize the 500-point budget
+    - Use cursor-based pagination efficiently to minimize redundant data fetches
+    - Request only the specific fields needed (GraphQL reduces over-fetching)
+    - Annual billing provides discounts compared to month-to-month pricing
+
+  references:
+    - url: https://www.meetup.com/meetup-pro/
+      description: Meetup Pro overview and pricing page
+    - url: https://www.meetup.com/graphql/guide/
+      description: GraphQL API guide with query examples and rate limit details

@@ -1,0 +1,24 @@
+rateLimits:
+  - name: GraphQL Query Budget
+    description: >
+      Meetup enforces a point-based rate limiting system on its GraphQL API.
+      Each query consumes points based on complexity, and clients are allowed
+      500 points per 60-second rolling window. Clients that exceed this budget
+      receive an error response identifying the rate-limited query and the
+      timestamp when the limit resets.
+    type: points
+    limit: 500
+    window: 60
+    windowUnit: seconds
+    scope: per-client
+    enforcement: hard
+    errorBehavior: >
+      Returns an error message in the GraphQL response indicating which query
+      triggered the rate limit and the time when the budget resets.
+    headers:
+      - name: Authorization
+        description: Bearer token required for all authenticated requests
+    notes:
+      - Rate limits apply to the Pro tier API access only
+      - Point cost per query varies by complexity and fields requested
+      - Multiple queries can be combined in a single GraphQL request to optimize point usage

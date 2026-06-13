@@ -1,0 +1,87 @@
+name: Meetup
+description: >
+  Meetup is a community event platform that connects people with shared interests
+  through in-person and online group meetings. Its GraphQL API enables developers
+  to access group events, members, RSVPs, venue information, and community activity
+  data. The API is available as part of the Meetup Pro subscription and supports
+  event creation, publishing workflows, RSVP management, photo uploads, and
+  network-wide group and event search for Pro organizers.
+image: https://www.meetup.com/favicon.ico
+tags:
+  - Events
+  - Community
+  - Groups
+  - Meetups
+  - Social
+  - GraphQL
+created: "2026-06-13"
+modified: "2026-06-13"
+url: https://raw.githubusercontent.com/api-evangelist/meetup/refs/heads/main/apis.yml
+specificationVersion: "0.19"
+apis:
+  - name: Meetup GraphQL API
+    description: >
+      A single-endpoint GraphQL API for accessing and managing Meetup community
+      data including groups, events, members, tickets (RSVPs), venues, and photos.
+      Supports querying, mutations for event creation and publishing, image uploads,
+      and full schema introspection. Rate-limited to 500 query points per 60-second
+      window.
+    image: https://www.meetup.com/favicon.ico
+    humanURL: https://www.meetup.com/graphql/
+    baseURL: https://api.meetup.com/gql-ext
+    tags:
+      - GraphQL
+      - Events
+      - Groups
+      - Members
+      - RSVPs
+      - Venues
+      - Photos
+    properties:
+      - type: Documentation
+        url: https://www.meetup.com/graphql/
+      - type: Guide
+        url: https://www.meetup.com/graphql/guide/
+      - type: Authentication
+        url: https://www.meetup.com/graphql/authentication/
+      - type: Playground
+        url: https://www.meetup.com/api/playground/
+      - type: Support
+        url: https://www.meetup.com/graphql/support/
+      - type: Plans
+        url: https://raw.githubusercontent.com/api-evangelist/meetup/refs/heads/main/plans/plans.yml
+      - type: RateLimits
+        url: https://raw.githubusercontent.com/api-evangelist/meetup/refs/heads/main/rate-limits/rate-limits.yml
+      - type: FinOps
+        url: https://raw.githubusercontent.com/api-evangelist/meetup/refs/heads/main/finops/finops.yml
+    contact:
+      - FN: Meetup Support
+        url: https://help.meetup.com/hc/requests/new?platform=web
+        email: ""
+    x-authentication:
+      - type: OAuth2
+        description: >
+          OAuth 2.0 with four flows: Server Flow, Refresh Token Flow, JWT Flow,
+          and Implicit Flow. Access tokens passed as Bearer tokens in the
+          Authorization HTTP header. Tokens expire after 3600 seconds.
+        authorizationUrl: https://secure.meetup.com/oauth2/authorize
+        tokenUrl: https://secure.meetup.com/oauth2/access
+        clientRegistrationUrl: https://www.meetup.com/api/oauth/create/
+
+common:
+  - type: Blog
+    url: https://www.meetup.com/blog/
+  - type: HelpCenter
+    url: https://help.meetup.com/hc
+  - type: APIUserGuide
+    url: https://help.meetup.com/hc/en-us/sections/41453323105549
+  - type: Terms
+    url: https://www.meetup.com/terms/
+  - type: Privacy
+    url: https://www.meetup.com/privacy/
+  - type: OAuthClients
+    url: https://www.meetup.com/api/oauth/list/
+maintainers:
+  - FN: API Evangelist
+    url: https://apievangelist.com
+    email: info@apievangelist.com
