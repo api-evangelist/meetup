@@ -1,0 +1,1736 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+# Custom scalars
+scalar Date
+scalar DateTime
+scalar Duration
+scalar LocalDateTime
+
+# Enums
+
+enum CacheEntityType {
+  EVENT
+  GROUP
+  MEMBER
+  NETWORK
+}
+
+enum ContentType {
+  HTML
+  PLAIN
+}
+
+enum CovidPrecautionMaskPolicy {
+  MASK_OPTIONAL
+  MASK_REQUIRED
+  NO_MASKS
+}
+
+enum CovidPrecautionVaccinePolicy {
+  VACCINE_OPTIONAL
+  VACCINE_REQUIRED
+}
+
+enum CovidPrecautionVenueType {
+  HYBRID
+  IN_PERSON
+  ONLINE
+}
+
+enum Currency {
+  AUD
+  BRL
+  CAD
+  CHF
+  CNY
+  EUR
+  GBP
+  HKD
+  INR
+  JPY
+  KRW
+  MXN
+  NOK
+  NZD
+  PHP
+  PLN
+  SEK
+  SGD
+  TRY
+  TWD
+  USD
+  ZAR
+}
+
+enum DayOfWeek {
+  FRIDAY
+  MONDAY
+  SATURDAY
+  SUNDAY
+  THURSDAY
+  TUESDAY
+  WEDNESDAY
+}
+
+enum DuesInterval {
+  ANNUAL
+  MONTHLY
+}
+
+enum DuesPaymentType {
+  DUES_NOT_REQUIRED
+  FREE_MEMBERSHIP
+  PAID_MEMBERSHIP
+}
+
+enum EventCommentAction {
+  DELETE
+  EDIT
+  VIEW
+}
+
+enum EventFeeCurrency {
+  AUD
+  BRL
+  CAD
+  EUR
+  GBP
+  NZD
+  USD
+}
+
+enum EventStatus {
+  CANCELLED
+  DRAFT
+  PAST
+  PUBLISHED
+  PROPOSED
+}
+
+enum EventType {
+  HYBRID
+  IN_PERSON
+  ONLINE
+}
+
+enum EventVenueVisibility {
+  MEMBER
+  PUBLIC
+}
+
+enum GroupEventSearchEventStatus {
+  CANCELLED
+  PAST
+  UPCOMING
+}
+
+enum GroupJoinMode {
+  APPROVAL
+  CLOSED
+  OPEN
+}
+
+enum GroupMembersNamedQuery {
+  ALL_MEMBERS
+  LEADERS
+}
+
+enum GroupMembershipSortField {
+  JOINED
+  NAME
+}
+
+enum GroupPrivacy {
+  CLOSED
+  OPEN
+  SECRET
+}
+
+enum GroupStatus {
+  ACTIVE
+  GRACE_PERIOD
+  INACTIVE
+  SUSPENDED
+}
+
+enum GroupVideoProvider {
+  VIMEO
+  YOUTUBE
+}
+
+enum GroupVisibility {
+  MEMBERS_ONLY
+  PUBLIC
+}
+
+enum KeywordSortField {
+  DATE
+  RELEVANCE
+}
+
+enum MemberEventSortField {
+  DATE
+  NAME
+}
+
+enum MemberGender {
+  FEMALE
+  MALE
+  NON_BINARY
+  OTHER
+}
+
+enum MembershipDuesMethod {
+  CARD
+  CASH
+  CHECK
+  OTHER
+}
+
+enum MembershipDuesStatus {
+  ACTIVE
+  CANCELLED
+  GRACE_PERIOD
+  PAST_DUE
+}
+
+enum MembershipSortField {
+  JOINED
+  NAME
+}
+
+enum MembershipStatus {
+  ACTIVE
+  BANNED
+  BLOCKED
+  INACTIVE
+  LEADER
+  PENDING
+}
+
+enum MembershipsFilterLeaderSubset {
+  ALL
+  ASSISTANT_ORGANIZER
+  CO_ORGANIZER
+  EVENT_ORGANIZER
+  ORGANIZER
+}
+
+enum MemberStatus {
+  ACTIVE
+  INACTIVE
+  SUSPENDED
+}
+
+enum NotificationCategory {
+  EVENT
+  GROUP
+  MEMBER
+  NETWORK
+}
+
+enum NotificationKind {
+  ANNOUNCEMENT
+  EVENT_CANCELLED
+  EVENT_COMMENT
+  EVENT_CREATED
+  GROUP_JOINED
+  RSVP_CONFIRMED
+  RSVP_WAITLISTED
+}
+
+enum NotificationPhotoType {
+  EVENT
+  MEMBER
+}
+
+enum PaymentMethod {
+  CARD
+  CASH
+  PAYPAL
+}
+
+enum PayStatus {
+  CANCELLED
+  COLLECTED
+  NOT_REQUIRED
+  PENDING
+  REFUNDED
+}
+
+enum PhotoType {
+  EVENT
+  GROUP
+  MEMBER
+}
+
+enum Pointcut {
+  PARAM
+  RETURN
+}
+
+enum ProNetworkPaymentModel {
+  CENTRALIZED
+  DECENTRALIZED
+}
+
+enum ProNetworkStatus {
+  ACTIVE
+  FROZEN
+  INACTIVE
+}
+
+enum ProNetworkTieStatus {
+  EXCLUDED
+  INCLUDED
+}
+
+enum PublishStatus {
+  DRAFT
+  PUBLISHED
+}
+
+enum QuestionType {
+  MULTIPLE_CHOICE
+  OPEN_ENDED
+}
+
+enum ReasonForJoining {
+  CAREER
+  CASUAL
+  COMMUNITY
+  DATING
+  HOBBIES
+  LEARNING
+  NETWORKING
+}
+
+enum RecommendedEventsSortField {
+  DATE
+  DISTANCE
+  RELEVANCE
+}
+
+enum RerankOutcome {
+  DOWNRANKED
+  NOT_RERANKED
+  UPRANKED
+}
+
+enum Role {
+  ASSISTANT_ORGANIZER
+  CO_ORGANIZER
+  EVENT_ORGANIZER
+  MEMBER
+  ORGANIZER
+}
+
+enum RsvpEventStatus {
+  ACTIVE
+  CANCELLED
+  DRAFT
+  PAST
+}
+
+enum RsvpSortField {
+  JOINED
+  NAME
+  UPDATED
+}
+
+enum RsvpState {
+  ATTENDED
+  NO_SHOW
+  YES
+}
+
+enum RsvpStatus {
+  NO
+  WAITLIST
+  YES
+}
+
+enum RsvpSurveyQuestion {
+  ATTENDANCE
+  SATISFACTION
+}
+
+enum SavedEventsFilter {
+  PAST
+  UPCOMING
+}
+
+enum SocialNetworkService {
+  FACEBOOK
+  INSTAGRAM
+  LINKEDIN
+  TWITTER
+  YOUTUBE
+}
+
+enum SocialNetworkStatus {
+  ACTIVE
+  INACTIVE
+}
+
+enum SortOrder {
+  ASC
+  DESC
+}
+
+enum SponsorType {
+  CORPORATE
+  INDIVIDUAL
+}
+
+enum TopicMatchMode {
+  ALL
+  ANY
+}
+
+enum WaitlistMode {
+  AUTO
+  MANUAL
+  OFF
+}
+
+# Object Types
+
+type PageInfo {
+  endCursor: String
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+}
+
+type PhotoInfo {
+  baseUrl: String
+  highResUrl: String
+  id: ID
+  standardUrl: String
+  thumbUrl: String
+}
+
+type SocialNetwork {
+  service: SocialNetworkService
+  status: SocialNetworkStatus
+  url: String
+}
+
+type Topic {
+  description: String
+  id: ID!
+  name: String!
+  urlkey: String
+}
+
+type TopicEdge {
+  node: Topic
+}
+
+type TopicsConnection {
+  count: Int
+  edges: [TopicEdge]
+  pageInfo: PageInfo
+}
+
+type TopicCategory {
+  id: ID
+  name: String
+  urlkey: String
+}
+
+type TopicCategoryEdge {
+  node: TopicCategory
+}
+
+type TopicCategoryConnection {
+  count: Int
+  edges: [TopicCategoryEdge]
+  pageInfo: PageInfo
+}
+
+type DuesSettings {
+  amount: Float
+  currency: Currency
+  duesInterval: DuesInterval
+  duesPaymentType: DuesPaymentType
+}
+
+type GroupDuesReasons {
+  description: String
+}
+
+type MembershipDues {
+  method: MembershipDuesMethod
+  nextDueDate: DateTime
+  status: MembershipDuesStatus
+}
+
+type MembershipRsvpStats {
+  attendedCount: Int
+  noShowCount: Int
+}
+
+type Membership {
+  bio: String
+  dues: MembershipDues
+  joinTime: DateTime
+  lastAccessTime: DateTime
+  role: Role
+  rsvpStats: MembershipRsvpStats
+  status: MembershipStatus
+}
+
+type GroupQuestion {
+  id: ID
+  question: String
+}
+
+type GroupVideo {
+  provider: GroupVideoProvider
+  url: String
+}
+
+type GroupStats {
+  memberCount: Int
+  upcomingEventCount: Int
+}
+
+type GroupStatsEventRatings {
+  average: Float
+  count: Int
+}
+
+type GroupMemberCounts {
+  all: Int
+  leader: Int
+}
+
+type GroupGenderMembershipRatios {
+  female: Float
+  male: Float
+  nonBinary: Float
+  other: Float
+}
+
+type GroupAnalytics {
+  genderMembershipRatios: GroupGenderMembershipRatios
+  memberCount: Int
+  memberCounts: GroupMemberCounts
+}
+
+type RefundPolicy {
+  description: String
+  daysUntilEvent: Int
+}
+
+type EarlyBirdDiscount {
+  amount: Float
+  cutoffDate: DateTime
+}
+
+type EventFeeSettings {
+  currency: EventFeeCurrency
+  fee: Float
+  refundPolicy: RefundPolicy
+}
+
+type RsvpOpenSettings {
+  closeTime: DateTime
+  openTime: DateTime
+}
+
+type RsvpSurveySettingsQuestion {
+  required: Boolean
+  type: RsvpSurveyQuestion
+}
+
+type RsvpSurveySettings {
+  questions: [RsvpSurveySettingsQuestion]
+}
+
+type RsvpQuestion {
+  id: ID
+  question: String
+  required: Boolean
+  type: QuestionType
+}
+
+type RsvpAnswer {
+  answer: String
+  question: RsvpQuestion
+}
+
+type Venue {
+  address: String
+  city: String
+  country: String
+  id: ID
+  lat: Float
+  lon: Float
+  name: String
+  postalCode: String
+  state: String
+  venueType: String
+}
+
+type GroupVenueEdge {
+  node: Venue
+}
+
+type GroupVenueConnection {
+  count: Int
+  edges: [GroupVenueEdge]
+  pageInfo: PageInfo
+}
+
+type SpeakerDetails {
+  bio: String
+  name: String
+  photoUrl: String
+  title: String
+}
+
+type Series {
+  description: String
+  id: ID
+  nextEvents: [Event]
+}
+
+type EventPhotoAlbum {
+  id: ID
+  photoCount: Int
+}
+
+type EventHost {
+  member: Member
+  response: String
+}
+
+type NetworkEvent {
+  id: ID
+  networkId: ID
+}
+
+type EventComment {
+  id: ID
+  member: Member
+  text: String
+  time: DateTime
+}
+
+type EventCommentEdge {
+  node: EventComment
+  cursor: String
+}
+
+type EventCommentConnection {
+  count: Int
+  edges: [EventCommentEdge]
+  pageInfo: PageInfo
+}
+
+type EventEdge {
+  node: Event
+  cursor: String
+}
+
+type EventSavedByMemberEdge {
+  node: Member
+  cursor: String
+}
+
+type EventSavedByMemberConnection {
+  count: Int
+  edges: [EventSavedByMemberEdge]
+  pageInfo: PageInfo
+}
+
+type FeaturedEventPhotoConnectionEdge {
+  node: PhotoInfo
+  cursor: String
+}
+
+type FeaturedEventPhotoConnection {
+  count: Int
+  edges: [FeaturedEventPhotoConnectionEdge]
+  pageInfo: PageInfo
+}
+
+type Event {
+  comments(first: Int, after: String): EventCommentConnection
+  createdTime: DateTime
+  dateTime: DateTime
+  description: String
+  displayPhoto: PhotoInfo
+  duration: Duration
+  endTime: DateTime
+  eventHosts: [EventHost]
+  eventType: EventType
+  eventUrl: String
+  featuredEventPhoto: PhotoInfo
+  feeSettings: EventFeeSettings
+  group: Group
+  guestLimit: Int
+  guestsAllowed: Boolean
+  hostRsvps: HostRsvpConnection
+  howToFindUs: String
+  id: ID!
+  isAttending: Boolean
+  isSaved: Boolean
+  maxTickets: Int
+  networkEvent: NetworkEvent
+  numberOfAllowedGuests: Int
+  photoAlbum: EventPhotoAlbum
+  rsvp: Rsvp
+  rsvpQuestions: [RsvpQuestion]
+  rsvpSearch(filter: RsvpSearchFilter, first: Int, after: String): RsvpSearchConnection
+  rsvpSettings: RsvpOpenSettings
+  rsvpState: RsvpState
+  rsvpSurveySettings: RsvpSurveySettings
+  rsvps(filter: RsvpFilter, sort: RsvpSort, first: Int, after: String): RsvpConnection
+  savedBy(first: Int, after: String): EventSavedByMemberConnection
+  series: Series
+  speakerDetails: SpeakerDetails
+  status: EventStatus
+  title: String
+  token: ID
+  topics(first: Int, after: String): TopicsConnection
+  venue: Venue
+  venues: [Venue]
+  waitlistMode: WaitlistMode
+  zoomMeetingId: ID
+}
+
+type GroupEventConnection {
+  count: Int
+  edges: [EventEdge]
+  pageInfo: PageInfo
+}
+
+type GroupEventSearchEdge {
+  node: Event
+  cursor: String
+}
+
+type GroupEventSearchConnection {
+  count: Int
+  edges: [GroupEventSearchEdge]
+  pageInfo: PageInfo
+}
+
+type MemberEdge {
+  cursor: String
+  node: Member
+}
+
+type MemberConnection {
+  count: Int
+  edges: [MemberEdge]
+  pageInfo: PageInfo
+}
+
+type GroupMemberEdge {
+  cursor: String
+  node: Member
+}
+
+type GroupMemberConnection {
+  count: Int
+  edges: [GroupMemberEdge]
+  pageInfo: PageInfo
+}
+
+type Sponsor {
+  id: ID
+  name: String
+  type: SponsorType
+  url: String
+}
+
+type SponsorEdge {
+  cursor: String
+  node: Sponsor
+}
+
+type ProGroupSponsorsConnection {
+  count: Int
+  edges: [SponsorEdge]
+  pageInfo: PageInfo
+}
+
+type Group {
+  activeTopics(first: Int, after: String): TopicsConnection
+  allowMemberPhotoUploads: Boolean
+  canAddPhotos: Boolean
+  city: String
+  country: String
+  customMemberLabel: String
+  description: String
+  duesSettings: DuesSettings
+  emailAnnounceAddress: String
+  events(filter: GroupEventFilter, first: Int, after: String): GroupEventConnection
+  featuredEventPhotos(first: Int, after: String): FeaturedEventPhotoConnection
+  foundedDate: DateTime
+  groupAnalytics: GroupAnalytics
+  id: ID!
+  isMember: Boolean
+  isPrimaryOrganizer: Boolean
+  isPrivate: Boolean
+  joinMode: GroupJoinMode
+  keyGroupPhoto: PhotoInfo
+  lat: Float
+  link: String
+  lon: Float
+  membershipMetadata: Membership
+  memberships(filter: MembershipFilter, sort: MembershipSort, first: Int, after: String): GroupMemberConnection
+  name: String!
+  needsPhoto: Boolean
+  needsQuestions: Boolean
+  organizer: Member
+  proJoinDate: DateTime
+  proNetwork: ProNetwork
+  questions: [GroupQuestion]
+  socialNetworks: [SocialNetwork]
+  sponsors(filter: SponsorsFilter, first: Int, after: String): ProGroupSponsorsConnection
+  state: String
+  stats: GroupStats
+  status: GroupStatus
+  timezone: String
+  topicCategory: TopicCategory
+  urlname: String!
+  venues(first: Int, after: String): GroupVenueConnection
+  video: GroupVideo
+  welcomeBlurb: String
+  zip: String
+}
+
+type MemberGroupEdge {
+  cursor: String
+  node: Group
+}
+
+type MemberGroupConnection {
+  count: Int
+  edges: [MemberGroupEdge]
+  pageInfo: PageInfo
+}
+
+type MemberEventEdge {
+  cursor: String
+  node: Event
+}
+
+type MemberEventConnection {
+  count: Int
+  edges: [MemberEventEdge]
+  pageInfo: PageInfo
+}
+
+type MemberRsvpConnection {
+  count: Int
+  edges: [RsvpEdge]
+  pageInfo: PageInfo
+}
+
+type Notification {
+  category: NotificationCategory
+  id: ID
+  kind: NotificationKind
+  text: String
+  time: DateTime
+}
+
+type MemberNotificationEdge {
+  cursor: String
+  node: Notification
+}
+
+type MemberNotificationConnection {
+  count: Int
+  edges: [MemberNotificationEdge]
+  pageInfo: PageInfo
+}
+
+type Member {
+  adminProNetworks: [ProNetwork]
+  bio: String
+  birthday: DateTime
+  canCreateOAuthClient: Boolean
+  city: String
+  country: String
+  email: String
+  gender: MemberGender
+  highestCurrentRole: Role
+  id: ID!
+  isFamiliarFace: Boolean
+  isLeader: Boolean
+  isMemberPlusSubscriber: Boolean
+  isOrganizer: Boolean
+  isProOrganizer: Boolean
+  isProPrimaryOrganizer: Boolean
+  lat: Float
+  lon: Float
+  memberEvents(sort: MemberEventSort, first: Int, after: String): MemberEventConnection
+  memberPhoto: PhotoInfo
+  memberUrl: String
+  memberships(sort: MembershipSort, first: Int, after: String): MemberGroupConnection
+  name: String!
+  notifications(filter: MemberNotificationsFilter, first: Int, after: String): MemberNotificationConnection
+  organizedGroupCount: Int
+  phoneNumberE164: String
+  preferredLocale: String
+  reasonsForJoining: [ReasonForJoining]
+  recommendedTopics(first: Int, after: String): TopicsConnection
+  rsvps(first: Int, after: String): MemberRsvpConnection
+  savedEvents(filter: SavedEventsFilter, first: Int, after: String): MemberEventConnection
+  selectedTimezone: String
+  startDate: DateTime
+  state: String
+  status: MemberStatus
+  topics(first: Int, after: String): TopicsConnection
+  username: String
+  zip: String
+}
+
+type Rsvp {
+  answer: RsvpAnswer
+  event: Event
+  guestsCount: Int
+  id: ID
+  isFirstEvent: Boolean
+  isHost: Boolean
+  isRsvpUnlocked: Boolean
+  member: Member
+  membership: Membership
+  payStatus: PayStatus
+  status: RsvpStatus
+  updated: DateTime
+  venue: Venue
+}
+
+type RsvpEdge {
+  cursor: String
+  node: Rsvp
+}
+
+type RsvpConnection {
+  count: Int
+  edges: [RsvpEdge]
+  pageInfo: PageInfo
+}
+
+type RsvpSearchConnection {
+  count: Int
+  edges: [RsvpEdge]
+  pageInfo: PageInfo
+}
+
+type HostRsvpConnection {
+  count: Int
+  edges: [RsvpEdge]
+  pageInfo: PageInfo
+}
+
+type MonthlyRecurrenceInfo {
+  dayOfMonth: Int
+  interval: Int
+}
+
+type WeeklyRecurrenceInfo {
+  days: [DayOfWeek]
+  interval: Int
+}
+
+type PayloadError {
+  code: String
+  field: String
+  message: String
+}
+
+type EventSearchEdge {
+  cursor: String
+  node: Event
+}
+
+type EventSearchConnection {
+  count: Int
+  edges: [EventSearchEdge]
+  pageInfo: PageInfo
+}
+
+type GroupSearchEdge {
+  cursor: String
+  node: Group
+}
+
+type GroupSearchConnection {
+  count: Int
+  edges: [GroupSearchEdge]
+  pageInfo: PageInfo
+}
+
+type RecommendedEventsEdge {
+  cursor: String
+  node: Event
+}
+
+type RecommendedEventsConnection {
+  count: Int
+  edges: [RecommendedEventsEdge]
+  pageInfo: PageInfo
+}
+
+type RecommendedGroupEdge {
+  cursor: String
+  node: Group
+}
+
+type RecommendedGroupsConnection {
+  count: Int
+  edges: [RecommendedGroupEdge]
+  pageInfo: PageInfo
+}
+
+type ProNetworkAnalytics {
+  eventCount: Int
+  groupCount: Int
+  memberCount: Int
+}
+
+type ProEventRegistrationAnswer {
+  answer: String
+  question: String
+}
+
+type ProEventRegistrationAnswersEdge {
+  cursor: String
+  node: ProEventRegistrationAnswer
+}
+
+type ProEventRegistrationAnswersConnection {
+  count: Int
+  edges: [ProEventRegistrationAnswersEdge]
+  pageInfo: PageInfo
+}
+
+type ProEventRegistration {
+  answers: [ProEventRegistrationAnswer]
+  event: Event
+  member: Member
+}
+
+type ProNetworkEventsSearchEdge {
+  cursor: String
+  node: Event
+}
+
+type ProNetworkEventsSearchConnection {
+  count: Int
+  edges: [ProNetworkEventsSearchEdge]
+  pageInfo: PageInfo
+}
+
+type ProNetworkGroupsSearchEdge {
+  cursor: String
+  node: Group
+}
+
+type ProNetworkGroupsSearchConnection {
+  count: Int
+  edges: [ProNetworkGroupsSearchEdge]
+  pageInfo: PageInfo
+}
+
+type ProNetworkMemberSearchEdge {
+  cursor: String
+  node: Member
+}
+
+type ProNetworkMemberSearchConnection {
+  count: Int
+  edges: [ProNetworkMemberSearchEdge]
+  pageInfo: PageInfo
+}
+
+type ProNetworkRsvpEdge {
+  cursor: String
+  node: Rsvp
+}
+
+type ProNetworkRsvpConnection {
+  count: Int
+  edges: [ProNetworkRsvpEdge]
+  pageInfo: PageInfo
+}
+
+type ProNetworkSuggestedEventsEdge {
+  cursor: String
+  node: Event
+}
+
+type ProNetworkSuggestedEventsConnection {
+  count: Int
+  edges: [ProNetworkSuggestedEventsEdge]
+  pageInfo: PageInfo
+}
+
+type NetworkEvent {
+  id: ID
+  networkId: ID
+}
+
+type NetworkEventsFilter {
+  status: [EventStatus]
+}
+
+type ProNetwork {
+  allowPhotoUploads: Boolean
+  contactEmail: String
+  description: String
+  eventRegistrationAnswers(filter: ProEventRegistrationAnswersFilter, first: Int, after: String): ProEventRegistrationAnswersConnection
+  eventsSearch(input: ProNetworkEventsSearchInput, first: Int, after: String): ProNetworkEventsSearchConnection
+  externalUrl: String
+  groupsSearch(input: ProNetworkGroupsSearchInput, first: Int, after: String): ProNetworkGroupsSearchConnection
+  id: ID!
+  isProEmailShared: Boolean
+  link: String
+  logo: PhotoInfo
+  membersSearch(input: ProNetworkMemberSearchInput, first: Int, after: String): ProNetworkMemberSearchConnection
+  name: String!
+  networkAnalytics: ProNetworkAnalytics
+  paymentModel: ProNetworkPaymentModel
+  primaryAdmin: Member
+  rsvpsSearch(input: ProNetworkRsvpsSearchInput, first: Int, after: String): ProNetworkRsvpConnection
+  socialNetworks: [SocialNetwork]
+  sponsors: [Sponsor]
+  status: ProNetworkStatus
+  suggestedEvents(input: ProNetworkSuggestedEventsInput, filter: ProNetworkSuggestedEventsFilter, first: Int, after: String): ProNetworkSuggestedEventsConnection
+  urlname: String!
+}
+
+# Payload types
+
+type CreateEventPayload {
+  event: Event
+  errors: [PayloadError]
+}
+
+type EditEventPayload {
+  event: Event
+  errors: [PayloadError]
+}
+
+type DeleteEventPayload {
+  errors: [PayloadError]
+  success: Boolean
+}
+
+type AnnounceEventPayload {
+  event: Event
+  errors: [PayloadError]
+}
+
+type PublishEventDraftPayload {
+  event: Event
+  errors: [PayloadError]
+}
+
+type CloseEventRsvpsPayload {
+  event: Event
+  errors: [PayloadError]
+}
+
+type OpenEventRsvpsPayload {
+  event: Event
+  errors: [PayloadError]
+}
+
+type CreateGroupDraftPayload {
+  group: Group
+  errors: [PayloadError]
+}
+
+type UpdateGroupDraftPayload {
+  group: Group
+  errors: [PayloadError]
+}
+
+type PublishGroupDraftPayload {
+  group: Group
+  errors: [PayloadError]
+}
+
+type CreateVenuePayload {
+  venue: Venue
+  errors: [PayloadError]
+}
+
+type UpdateGroupMembershipRolePayload {
+  membership: Membership
+  errors: [PayloadError]
+}
+
+type AddGroupToNetworkPayload {
+  group: Group
+  errors: [PayloadError]
+}
+
+type PhotoUploadWithUrlPayload {
+  photoUrl: String
+  errors: [PayloadError]
+}
+
+# Input types
+
+input GeoLocation {
+  lat: Float!
+  lon: Float!
+  radius: Float
+}
+
+input PointLocation {
+  lat: Float!
+  lon: Float!
+}
+
+input CityLocation {
+  city: String!
+  country: String!
+  state: String
+}
+
+input GroupLocation {
+  city: String
+  country: String
+  lat: Float
+  lon: Float
+  state: String
+  zip: String
+}
+
+input EventSearch {
+  filter: EventSearchFilter
+  sort: KeywordSort
+}
+
+input EventSearchFilter {
+  endDateRange: DateTime
+  eventType: EventType
+  location: GeoLocation
+  source: String
+  startDateRange: DateTime
+  status: [EventStatus]
+  topics: [String]
+}
+
+input GroupSearchFilter {
+  country: String
+  fallbackSuggestions: Boolean
+  lat: Float
+  lon: Float
+  radius: Float
+  source: String
+  topics: [String]
+}
+
+input GroupEventFilter {
+  status: [EventStatus]
+}
+
+input GroupEventSearchFilter {
+  status: [GroupEventSearchEventStatus]
+}
+
+input RsvpFilter {
+  status: [RsvpStatus]
+}
+
+input RsvpSort {
+  field: RsvpSortField
+  order: SortOrder
+}
+
+input RsvpSearchFilter {
+  status: [RsvpStatus]
+}
+
+input MembershipFilter {
+  role: Role
+  status: [MembershipStatus]
+}
+
+input MembershipSort {
+  field: MembershipSortField
+  order: SortOrder
+}
+
+input GroupMembershipSort {
+  field: GroupMembershipSortField
+  order: SortOrder
+}
+
+input MembershipsFilter {
+  leaderSubset: MembershipsFilterLeaderSubset
+  status: [MembershipStatus]
+}
+
+input MemberEventSort {
+  field: MemberEventSortField
+  order: SortOrder
+}
+
+input MemberNotificationsFilter {
+  category: [NotificationCategory]
+}
+
+input KeywordSort {
+  field: KeywordSortField
+  order: SortOrder
+}
+
+input TopicFilter {
+  matchMode: TopicMatchMode
+  topicIds: [ID]
+}
+
+input RecommendedEventsFilter {
+  endDateRange: DateTime
+  eventType: EventType
+  location: GeoLocation
+  startDateRange: DateTime
+  topics: [String]
+}
+
+input RecommendedEventsSort {
+  field: RecommendedEventsSortField
+  order: SortOrder
+}
+
+input RecommendedGroupsFilter {
+  country: String
+  lat: Float
+  lon: Float
+  radius: Float
+  topics: [String]
+}
+
+input SponsorsFilter {
+  type: SponsorType
+}
+
+input RsvpCountRange {
+  max: Int
+  min: Int
+}
+
+input CovidPrecautionsInput {
+  maskPolicy: CovidPrecautionMaskPolicy
+  vaccinePolicy: CovidPrecautionVaccinePolicy
+  venueType: CovidPrecautionVenueType
+}
+
+input RsvpSettings {
+  closeTime: DateTime
+  limit: Int
+  openTime: DateTime
+  waitlistMode: WaitlistMode
+}
+
+input RsvpSurvey {
+  questions: [RsvpSurveyQuestion]
+}
+
+input RsvpSurveyEdit {
+  questions: [RsvpSurveyQuestion]
+}
+
+input QuestionInput {
+  question: String!
+  required: Boolean
+  type: QuestionType!
+}
+
+input EventFeeOption {
+  currency: EventFeeCurrency!
+  fee: Float!
+}
+
+input EventFeeOptionEdit {
+  currency: EventFeeCurrency
+  fee: Float
+}
+
+input EventPromoCodeInput {
+  code: String!
+  dateRange: PromoCodeDateRangeInput
+  discount: Float!
+}
+
+input PromoCodeDateRangeInput {
+  endDate: DateTime!
+  startDate: DateTime!
+}
+
+input EarlyBirdDiscountInput {
+  amount: Float!
+  cutoffDate: DateTime!
+}
+
+input EventFundraisingInput {
+  goal: Float
+}
+
+input SpeakerDetailsInput {
+  bio: String
+  name: String!
+  photoUrl: String
+  title: String
+}
+
+input SpeakerSocialNetworkInputNode {
+  service: SocialNetworkService!
+  url: String!
+}
+
+input VenueOptionInput {
+  address: String
+  city: String
+  country: String
+  id: ID
+  lat: Float
+  lon: Float
+  name: String
+  postalCode: String
+  state: String
+  venueType: String
+}
+
+input WeeklyRecurrence {
+  days: [DayOfWeek]!
+  interval: Int
+}
+
+input MonthlyRecurrence {
+  dayOfMonth: Int!
+  interval: Int
+}
+
+input RecurringEvents {
+  monthly: MonthlyRecurrence
+  weekly: WeeklyRecurrence
+}
+
+input RecurringEventsEdit {
+  monthly: MonthlyRecurrence
+  weekly: WeeklyRecurrence
+}
+
+input CommunicationSettingsInput {
+  enabled: Boolean
+}
+
+input CreateEventInput {
+  description: String
+  duration: Duration
+  eventHosts: [ID]
+  eventType: EventType
+  feeSettings: EventFeeOption
+  fundraisingSettings: EventFundraisingInput
+  groupUrlname: String!
+  guestLimit: Int
+  howToFindUs: String
+  maxTickets: Int
+  publishStatus: PublishStatus
+  questions: [QuestionInput]
+  rsvpSettings: RsvpSettings
+  rsvpSurvey: RsvpSurvey
+  self: Boolean
+  speakerDetails: SpeakerDetailsInput
+  startDateTime: DateTime!
+  title: String!
+  topics: [String]
+  venue: VenueOptionInput
+  venueVisibility: EventVenueVisibility
+}
+
+input EditEventInput {
+  description: String
+  duration: Duration
+  eventHosts: [ID]
+  eventType: EventType
+  feeSettings: EventFeeOptionEdit
+  fundraisingSettings: EventFundraisingInput
+  guestLimit: Int
+  howToFindUs: String
+  id: ID!
+  maxTickets: Int
+  publishStatus: PublishStatus
+  questions: [QuestionInput]
+  recurring: RecurringEventsEdit
+  rsvpSettings: RsvpSettings
+  rsvpSurvey: RsvpSurveyEdit
+  speakerDetails: SpeakerDetailsInput
+  startDateTime: DateTime
+  title: String
+  topics: [String]
+  venue: VenueOptionInput
+  venueVisibility: EventVenueVisibility
+}
+
+input DeleteEventInput {
+  id: ID!
+}
+
+input AnnounceEventInput {
+  id: ID!
+}
+
+input PublishEventDraftInput {
+  id: ID!
+}
+
+input CloseEventRsvpsInput {
+  id: ID!
+}
+
+input OpenEventRsvpsInput {
+  id: ID!
+}
+
+input SocialNetworkInput {
+  service: SocialNetworkService!
+  url: String!
+}
+
+input GroupQuestionInput {
+  question: String!
+  required: Boolean
+}
+
+input GroupVideoInput {
+  provider: GroupVideoProvider
+  url: String
+}
+
+input GroupMutation {
+  city: String
+  country: String
+  customMemberLabel: String
+  description: String
+  groupPhoto: ID
+  joinMode: GroupJoinMode
+  lat: Float
+  lon: Float
+  name: String
+  privacy: GroupPrivacy
+  questions: [GroupQuestionInput]
+  socialNetworks: [SocialNetworkInput]
+  state: String
+  timezone: String
+  topicCategory: ID
+  video: GroupVideoInput
+  welcomeBlurb: String
+  zip: String
+}
+
+input CreateGroupDraftInput {
+  group: GroupMutation!
+}
+
+input UpdateGroupDraftInput {
+  group: GroupMutation!
+  id: ID!
+}
+
+input DeleteGroupDraftInput {
+  id: ID!
+}
+
+input PublishGroupDraftInput {
+  id: ID!
+}
+
+input CreateVenueInput {
+  address: String
+  city: String!
+  country: String!
+  groupUrlname: String!
+  lat: Float
+  lon: Float
+  name: String!
+  postalCode: String
+  state: String
+}
+
+input UpdateGroupMembershipRoleInput {
+  groupId: ID!
+  memberId: ID!
+  role: Role!
+}
+
+input AddGroupToNetworkInput {
+  groupId: ID!
+  networkId: ID!
+}
+
+input GroupEventPhotoCreateInput {
+  eventId: ID!
+  photoUrl: String!
+}
+
+input ProNetworkFilter {
+  id: ID
+  urlname: String
+}
+
+input NetworkGroupsFilter {
+  status: [GroupStatus]
+}
+
+input NetworkUsersFilter {
+  role: Role
+}
+
+input ProNetworkEventsInput {
+  networkId: ID!
+  status: [EventStatus]
+}
+
+input ProNetworkEventsSearchInput {
+  endDateRange: DateTime
+  query: String
+  startDateRange: DateTime
+  status: [EventStatus]
+}
+
+input ProNetworkGroupsSearchInput {
+  query: String
+  status: [GroupStatus]
+}
+
+input ProNetworkMemberSearchInput {
+  query: String
+  role: Role
+}
+
+input ProNetworkRsvpsSearchInput {
+  endDateRange: DateTime
+  startDateRange: DateTime
+  status: [RsvpStatus]
+}
+
+input ProNetworkSuggestedEventsInput {
+  networkId: ID!
+}
+
+input ProNetworkSuggestedEventsFilter {
+  endDateRange: DateTime
+  startDateRange: DateTime
+}
+
+input ProEventRegistrationAnswersFilter {
+  eventId: ID
+}
+
+input ProEventRegistrationAnswersInput {
+  answers: [String]!
+  eventId: ID!
+  questionId: ID!
+}
+
+# Root Query type
+
+type Query {
+  """Returns an event according to requested id"""
+  event(id: ID!): Event
+
+  """Search events using keywords and a location."""
+  eventSearch(filter: EventSearchFilter, sort: KeywordSort, first: Int, after: String): EventSearchConnection
+
+  """Returns events"""
+  events(filter: EventSearchFilter, first: Int, after: String): EventSearchConnection
+
+  """Fetch a single group by its id"""
+  group(id: ID!): Group
+
+  """Fetch a single group by its urlname"""
+  groupByUrlname(urlname: String!): Group
+
+  """Search groups using keywords and a location."""
+  groupSearch(filter: GroupSearchFilter, sort: KeywordSort, first: Int, after: String): GroupSearchConnection
+
+  """Query a Pro Network by either id or urlname"""
+  proNetwork(filter: ProNetworkFilter): ProNetwork
+
+  """Search events using only location."""
+  recommendedEvents(filter: RecommendedEventsFilter, sort: RecommendedEventsSort, first: Int, after: String): RecommendedEventsConnection
+
+  """Returns recommended groups"""
+  recommendedGroups(filter: RecommendedGroupsFilter, first: Int, after: String): RecommendedGroupsConnection
+
+  """The currently authenticated member"""
+  self: Member
+
+  """Suggest topics given a search term"""
+  suggestTopics(query: String!, first: Int): TopicsConnection
+
+  """List top level topic categories"""
+  topicCategories(first: Int, after: String): TopicCategoryConnection
+}
+
+# Root Mutation type
+
+type Mutation {
+  """Add a group to a Pro Network"""
+  addGroupToNetwork(input: AddGroupToNetworkInput!): AddGroupToNetworkPayload
+
+  """Request to announce the event"""
+  announceEvent(input: AnnounceEventInput!): AnnounceEventPayload
+
+  """Request to close a possibility to accept RSVPs"""
+  closeEventRsvps(input: CloseEventRsvpsInput!): CloseEventRsvpsPayload
+
+  """Request to create an event"""
+  createEvent(input: CreateEventInput!): CreateEventPayload
+
+  """Request to create a new group draft"""
+  createGroupDraft(input: CreateGroupDraftInput!): CreateGroupDraftPayload
+
+  """Create a photo in a group album"""
+  createGroupEventPhoto(input: GroupEventPhotoCreateInput!): PhotoUploadWithUrlPayload
+
+  """Create a new venue for a group"""
+  createVenue(input: CreateVenueInput!): CreateVenuePayload
+
+  """Request to delete event"""
+  deleteEvent(input: DeleteEventInput!): DeleteEventPayload
+
+  """Request to delete a group draft"""
+  deleteGroupDraft(input: DeleteGroupDraftInput!): Boolean
+
+  """Request to edit the event"""
+  editEvent(input: EditEventInput!): EditEventPayload
+
+  """Request to open a possibility to accept RSVPs"""
+  openEventRsvps(input: OpenEventRsvpsInput!): OpenEventRsvpsPayload
+
+  """Request to publish the event draft"""
+  publishEventDraft(input: PublishEventDraftInput!): PublishEventDraftPayload
+
+  """Request to publish the existing group draft"""
+  publishGroupDraft(input: PublishGroupDraftInput!): PublishGroupDraftPayload
+
+  """Changes any field of a group using its id to identify it."""
+  updateGroup(id: ID!, input: GroupMutation!): Group
+
+  """Request to update the existing group draft"""
+  updateGroupDraft(input: UpdateGroupDraftInput!): UpdateGroupDraftPayload
+
+  """Allows a Group leader to change group membership role for a given member"""
+  updateGroupMembershipRole(input: UpdateGroupMembershipRoleInput!): UpdateGroupMembershipRolePayload
+}
