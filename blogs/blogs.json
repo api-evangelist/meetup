@@ -1,10 +1,10 @@
 {
   "provider": "meetup",
   "blogUrl": "https://www.meetup.com/blog/",
-  "fetched": "2026-06-13",
+  "fetched": "2026-06-14T20:42:17Z",
   "posts": [
     {
-      "title": "The 2026 Meetup roadmap—Building on our 2025 momentum",
+      "title": "The 2026 Meetup roadmap\u2014Building on our 2025 momentum",
       "url": "https://www.meetup.com/blog/2026-meetup-roadmap/",
       "date": "2025-12-18",
       "author": "Chiara Vivaldi",
@@ -36,7 +36,7 @@
       "summary": "Product lead reflection on the past year's accomplishments and priorities for upcoming months, highlighting platform growth and community milestones."
     },
     {
-      "title": "Personalized event recommendations that deliver—4 tips to boost your RSVPs",
+      "title": "Personalized event recommendations that deliver\u20144 tips to boost your RSVPs",
       "url": "https://www.meetup.com/blog/4-tips-more-rsvps-personal-recommendations/",
       "date": "2025-12-18",
       "author": "Meetup Team",
@@ -67,5 +67,13 @@
       "category": "Product Updates",
       "summary": "Stripe payment processing is now available to all organizers for collecting membership fees, making it easier to manage recurring dues for community groups."
     }
-  ]
+  ],
+  "repo": "meetup",
+  "feeds": [
+    {
+      "source": "https://help.meetup.com/hc/requests/new?platform=web",
+      "error": "HTTPError"
+    }
+  ],
+  "post_count": 0
 }
