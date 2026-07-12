@@ -72,6 +72,10 @@ apis:
     tokenUrl: https://secure.meetup.com/oauth2/access
     clientRegistrationUrl: https://www.meetup.com/api/oauth/create/
 common:
+- type: VulnerabilityDisclosure
+  url: security/meetup-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/meetup-domain-security.yml
 - type: Blog
   url: https://www.meetup.com/blog/
 - type: HelpCenter
