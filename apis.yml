@@ -7,6 +7,18 @@ description: 'Meetup is a community event platform that connects people with sha
   group and event search for Pro organizers.
 
   '
+accessModel:
+  pricing: paid
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Paid
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
 image: https://www.meetup.com/favicon.ico
 tags:
 - Events
