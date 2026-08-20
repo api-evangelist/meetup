@@ -21,6 +21,13 @@ accessModel:
   method: derived
 image: https://www.meetup.com/favicon.ico
 tags:
+- Event
+- Community
+- Group
+- Meetups
+- Social
+- GraphQL
+tags_raw:
 - Events
 - Community
 - Groups
@@ -43,6 +50,14 @@ apis:
   humanURL: https://www.meetup.com/graphql/
   baseURL: https://api.meetup.com/gql-ext
   tags:
+  - GraphQL
+  - Event
+  - Group
+  - Members
+  - RSVPs
+  - Venues
+  - Photos
+  tags_raw:
   - GraphQL
   - Events
   - Groups
