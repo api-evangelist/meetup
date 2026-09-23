@@ -1,0 +1,26 @@
+# Front Door AI Index — meetup — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: meetup
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.meetup.com
+  final_host: www.meetup.com
+  ownership: own
+  owner: meetup
+  shares_host_with:
+  - meetup-com
+  inherited_from: null
+  verdict: scored
+  score: 3
+  host_score: 3
+  density: 2.63
+  words: 1140
+  tiers:
+    agentic: 0
+    core: 3
+    model: 0
+  ambiguous: 0
+  top_terms:
+    AI: 3
