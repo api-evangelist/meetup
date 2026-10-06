@@ -46,7 +46,7 @@ tags_raw:
 - Social
 - GraphQL
 created: '2026-06-13'
-modified: '2026-06-13'
+modified: '2026-10-06'
 url: https://raw.githubusercontent.com/api-evangelist/meetup/refs/heads/main/apis.yml
 specificationVersion: '0.23'
 apis:
@@ -110,6 +110,8 @@ apis:
     tokenUrl: https://secure.meetup.com/oauth2/access
     clientRegistrationUrl: https://www.meetup.com/api/oauth/create/
 common:
+- url: https://www.meetup.com/blog/feed/
+  type: BlogRSS
 - type: Website
   url: https://www.meetup.com/
 - type: VulnerabilityDisclosure
