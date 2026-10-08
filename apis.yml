@@ -110,6 +110,12 @@ apis:
     tokenUrl: https://secure.meetup.com/oauth2/access
     clientRegistrationUrl: https://www.meetup.com/api/oauth/create/
 common:
+- type: Plans
+  url: plans/plans.yml
+- type: RateLimits
+  url: rate-limits/rate-limits.yml
+- type: FinOps
+  url: finops/finops.yml
 - url: https://www.meetup.com/blog/feed/
   type: BlogRSS
 - type: Website
