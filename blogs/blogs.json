@@ -6,16 +6,17 @@
       "feed_url": "https://www.meetup.com/blog/feed/",
       "title": "",
       "saved": 0,
-      "method": "feed",
-      "nature": "vendor-blog",
-      "nature_basis": "path_blog"
+      "method": "feed"
     },
     {
-      "source": "https://help.meetup.com/hc/requests/new?platform=web",
-      "error": "HTTPError"
+      "source": "https://www.meetup.com/blog/",
+      "feed_url": "https://www.meetup.com/blog/feed/",
+      "title": "",
+      "saved": 0,
+      "method": "discovered"
     }
   ],
-  "fetched": "2026-10-03T12:15:37Z",
+  "fetched": "2026-10-10T13:15:00Z",
   "post_count": 10,
   "feed_nature": "vendor-blog",
   "feed_nature_basis": "path_blog",
