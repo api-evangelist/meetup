@@ -64,46 +64,117 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Meetup is a community event platform that connects people with shared interests through in-person and online group meetings. Its GraphQL API provides programmatic access to group events, members, RSVPs, venue information, and community activity data for developers building integrations with the Meetup platform.
+Meetup is a community event platform that connects people with shared interests through in-person and online group meetings. Its GraphQL API enables developers to access group events, members, RSVPs, venue information, and community activity data. The API is available as part of the Meetup Pro subscription and supports event creation, publishing workflows, RSVP management, photo uploads, and network-wide group and event search for Pro organizers.
 
-## API
+**Areas:** Event · Community · Group · Meetups · Social · GraphQL
 
-Meetup provides a single-endpoint GraphQL API available to Meetup Pro subscribers. The API supports querying group and event data, managing RSVPs (called Tickets in the current API version), publishing events, uploading photos, and searching across Pro networks.
+## Meetup on APIs.io
 
-- **Endpoint:** `https://api.meetup.com/gql-ext`
-- **API Type:** GraphQL
-- **Authentication:** OAuth 2.0 (Bearer token)
-- **Rate Limit:** 500 query points per 60-second window
-- **Playground:** https://www.meetup.com/api/playground/
+Everything profiled for Meetup is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/meetup/](https://apis.io/providers/meetup/)** — or go straight to one of the APIs or properties below.
 
-## Documentation
+### APIs (1)
 
-- [API Introduction](https://www.meetup.com/graphql/)
-- [API Guide](https://www.meetup.com/graphql/guide/)
-- [Authentication](https://www.meetup.com/graphql/authentication/)
-- [Support](https://www.meetup.com/graphql/support/)
-- [Help Center - API User Guide](https://help.meetup.com/hc/en-us/sections/41453323105549)
+- [Meetup GraphQL API](https://apis.io/apis/meetup/meetup-graphql-api/) — A single-endpoint GraphQL API for accessing and managing Meetup community data including groups, events, members, tickets (RSVPs), venues, and photos.…
 
-## Authentication
+### Published properties
 
-The Meetup API uses OAuth 2.0. Four flows are supported:
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-- **Server Flow** - for server-side applications
-- **Refresh Token Flow** - for renewing expired tokens
-- **JWT Flow** - for server-to-server interactions
-- **Implicit Flow** - for browser-based JavaScript clients
+#### GraphQL (1)
 
-OAuth endpoints:
-- Authorization: `https://secure.meetup.com/oauth2/authorize`
-- Token: `https://secure.meetup.com/oauth2/access`
+GraphQL schemas.
 
-## Plans
+- [Meetup GraphQL API](https://apis.io/graphqls/meetup/meetup-graphql/)
 
-API access requires a **Meetup Pro** subscription (starting at $55/group/month). The Standard plan ($29.99/month) does not include API access.
+#### MCP servers (1)
 
-## Repository Contents
+Model Context Protocol servers that expose the API to agents.
 
-- `apis.yml` - APIs.json 0.19 provider profile
-- `plans/plans.yml` - Subscription plan details
-- `rate-limits/rate-limits.yml` - Rate limiting details
-- `finops/finops.yml` - Financial operations and cost information
+- [meetup](https://apis.io/servers/meetup/meetup/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Meetup Domain Security](https://apis.io/security/meetup/meetup-domain-security/)
+- [Meetup Vulnerability Disclosure](https://apis.io/security/meetup/meetup-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Plans](https://apis.io/plans/meetup/plans/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Rate Limits](https://apis.io/rate-limits/meetup/rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Finops](https://apis.io/finops/meetup/finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.meetup.com/)
+- [Blog](https://www.meetup.com/blog/)
+
+## API Evangelist rating
+
+**Kin Score 26.3** — thin · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 68.3 |
+| Contract quality | 35.1 |
+| Contract governance | 0.0 |
+| Operational transparency | 15.8 |
+| Developer ergonomics | 22.6 |
+| Access clarity | 15.8 |
+
+**Agent readiness 30.2** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 21.6** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/meetup/](https://apis.io/providers/meetup/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Meetup: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/meetup/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
